@@ -1,4 +1,6 @@
 defmodule FizzBuzz do
+  import ExPrintf
+
   def run(limit) do
     print(1, limit)
   end
@@ -6,10 +8,9 @@ defmodule FizzBuzz do
   defp print(n, limit) when n == limit do
     cond do
       #"~n"は改行
-      #"~2..0B"はなんだろう。C言語のprintfの書式が使えないのは面倒だー
-      rem(n, 15) == 0 -> :io.format "~2..0B: FizzBuzz~n", [n]
-      rem(n, 3)  == 0 -> :io.format "~2..0B: Fizz~n", [n]
-      rem(n, 5)  == 0 -> :io.format "~2..0B: Buzz~n", [n]
+      rem(n, 15) == 0 -> printf "%02d: FizzBuzz\n", [n]
+      rem(n, 3)  == 0 -> printf "%02d: Fizz\n", [n]
+      rem(n, 5)  == 0 -> printf "%02d: Buzz\n", [n]
       true            -> nil
     end
   end
