@@ -7,4 +7,8 @@ if [ $# -ne 1 ]; then
 fi
 input=$1
 
-elixir src/fizzbuzz.exs $input
+pushd fizzbuzz
+
+mix run ../src/fizzbuzz.exs $input
+
+popd
