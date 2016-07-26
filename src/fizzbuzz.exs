@@ -18,6 +18,7 @@ defmodule FizzBuzz do
   end
 end
 
-input = 10
+# input = 10
+input = System.argv |> List.first |> String.to_integer
 
 FizzBuzz.run(input)
